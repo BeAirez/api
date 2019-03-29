@@ -1,4 +1,5 @@
-function getAPIdata() {
+/*Api's*/
+function weather() {
 	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=b0c8dafa512a0134e90df6ece3c2b7a2&q=the%20Hague,nl';
 	fetch(request)	
 	
@@ -8,13 +9,12 @@ function getAPIdata() {
 	
 	.then(function(response) {
 		console.log(response);
-		var temp = parseFloat(response.main.temp-273.15).toFixed(2);
-		document.getElementById('weather').innerHTML = 'It&#39;s ' + temp + ' degrees outside with ' + response.weather[0].main + ' in ' + response.name; 
+		var temp = parseFloat(response.main.temp-273.15).toFixed(1);
+		document.getElementById('weather').innerHTML = 'It&#39;s ' + temp + ' degrees outside in ' + response.name; 
 	});
 }
-getAPIdata();
 
-function getAPIdata2() {
+function bored() {
 	var request = 'https://www.boredapi.com/api/activity/';
 	fetch(request)	
 	
@@ -23,13 +23,12 @@ function getAPIdata2() {
 	})
 	
 	.then(function(response) {
-		console.log(response);
-		document.getElementById('todo').innerHTML = response.activity;
+		console.log(response);			/*Deze moeten er nog uit */
+		document.getElementById('activiteit').innerHTML = response.activity;
 	});
 }
-getAPIdata2();
 
-
+/*Klok*/
 function startTijd() {
 	var vandaag = new Date();
 	var uur 	= vandaag.getHours();
@@ -37,7 +36,7 @@ function startTijd() {
 	var seconde = vandaag.getSeconds();
 	minuut 		= checkTijd(minuut);
 	seconde 	= checkTijd(seconde);
-	document.getElementById('txt').innerHTML = uur + ":" + minuut + ":" + seconde;
+	document.getElementById('klok').innerHTML = uur + ":" + minuut + ":" + seconde;
 	var t = setTimeout(startTijd, 1000);
 }
 function checkTijd(i) {
@@ -45,18 +44,21 @@ function checkTijd(i) {
 	return i;
 }
 
-startTijd()
-
+/* Laat een bericht zien op basis van tijd*/
 var vandaag = new Date();
 if (vandaag.getHours() > 6 && vandaag.getHours() < 12){
-	document.getElementById('message').innerHTML = 'Goodmorning Captain!';
+	document.getElementById('message').innerHTML = 'Goodmorning Crew!';
 }
 else if (vandaag.getHours() > 12 && vandaag.getHours() < 18) {
-	document.getElementById('message').innerHTML = 'Good Afternoon Captain!';
+	document.getElementById('message').innerHTML = 'Good Afternoon Crew!';
 }
 else if (vandaag.getHours() > 18 && vandaag.getHours() < 1){
-	document.getElementById('message').innerHTML = 'Good Evening Captain!';
+	document.getElementById('message').innerHTML = 'Good Evening Crew!';
 }
 else{
 	document.getElementById('message').innerHTML = 'Why aren&#39;t you sleeping Captain?';
 }
+
+startTijd();
+weather();
+bored();

@@ -1,1 +1,87 @@
-//
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*{
+	font-family: Open Sans;
+}
+.flexbox{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 95vh;
+}
+.box{
+	text-align: center;
+}
+#message{
+	font-size: 25px;
+	margin-bottom: 10%;
+}
+#weather{
+	margin-bottom: 10%;
+}
+#klok{
+	font-size: 50px;
+	margin-bottom: 10%;
+}
+.tekst{
+	font-size: 15px;
+}
+#activiteit{
+	font-size: 20px;
+	margin-top: 5%;
+}
+
+
+/*Media Queries*/
+@media only screen and (min-width: 600px){
+	#message{
+		font-size: 50px;
+	}
+	#weather{
+		font-size: 30px;
+	}
+	#klok{
+		font-size: 100px;
+	}
+	.tekst{
+		font-size: 20px;
+	}
+	#activiteit{
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 900px){
+	#message{
+		font-size: 60px;
+	}
+	#weather{
+		font-size: 36px;
+	}
+	#klok{
+		font-size: 120px;
+	}
+	.tekst{
+		font-size: 24px;
+	}
+	#activiteit{
+		font-size: 36px;
+	}
+}
+
+@media only screen and (min-width: 1366px) {
+	#message{
+		font-size: 70px;
+	}
+	#weather{
+		font-size: 40px;
+	}
+	#klok{
+		font-size: 140px;
+	}
+	.tekst{
+		font-size: 28px;
+	}
+	#activiteit{
+		font-size: 40px;
+	}
+}
