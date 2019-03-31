@@ -11,6 +11,7 @@
 .box{
 	text-align: center;
 }
+
 #message{
 	font-size: 25px;
 	margin-bottom: 10%;
@@ -29,7 +30,6 @@
 	font-size: 20px;
 	margin-top: 5%;
 }
-
 
 /*Media Queries*/
 @media only screen and (min-width: 600px){

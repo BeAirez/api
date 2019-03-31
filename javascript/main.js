@@ -1,14 +1,13 @@
 /*Api's*/
 function weather() {
 	var request = 'https://api.openweathermap.org/data/2.5/weather?appid=b0c8dafa512a0134e90df6ece3c2b7a2&q=the%20Hague,nl';
-	fetch(request)	
+	fetch(request)
 	
 	.then(function(response) {
 		return response.json();
 	})
 	
 	.then(function(response) {
-		console.log(response);
 		var temp = parseFloat(response.main.temp-273.15).toFixed(1);
 		document.getElementById('weather').innerHTML = 'It&#39;s ' + temp + ' degrees outside in ' + response.name; 
 	});
@@ -23,7 +22,6 @@ function bored() {
 	})
 	
 	.then(function(response) {
-		console.log(response);			/*Deze moeten er nog uit */
 		document.getElementById('activiteit').innerHTML = response.activity;
 	});
 }
@@ -52,11 +50,21 @@ if (vandaag.getHours() > 6 && vandaag.getHours() < 12){
 else if (vandaag.getHours() > 12 && vandaag.getHours() < 18) {
 	document.getElementById('message').innerHTML = 'Good Afternoon Crew!';
 }
-else if (vandaag.getHours() > 18 && vandaag.getHours() < 1){
+else if (vandaag.getHours() > 18 && vandaag.getHours() < 24){
 	document.getElementById('message').innerHTML = 'Good Evening Crew!';
 }
 else{
-	document.getElementById('message').innerHTML = 'Why aren&#39;t you sleeping Captain?';
+	document.getElementById('message').innerHTML = 'Why aren&#39;t you sleeping?';
+}
+
+//Veranderd de achtergrond kleur naarmate het avond wordt.
+if (vandaag.getHours() > 8 && vandaag.getHours() < 18){
+	document.body.style.backgroundColor = "rgba(245, 245, 240 ,1 )";
+	document.body.style.color = "black";
+}
+else {
+	document.body.style.backgroundColor = "rgba(0, 0, 0 ,1 )";
+	document.body.style.color = "white";
 }
 
 startTijd();
