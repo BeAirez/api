@@ -58,7 +58,7 @@ else{
 }
 
 //Veranderd de achtergrond kleur naarmate het avond wordt.
-if (vandaag.getHours() > 8 && vandaag.getHours() < 18){
+if (vandaag.getHours() > 7 && vandaag.getHours() < 18){
 	document.body.style.backgroundColor = "rgba(245, 245, 240 ,1 )";
 	document.body.style.color = "black";
 }
